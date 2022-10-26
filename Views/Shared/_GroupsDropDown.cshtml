@@ -1,0 +1,13 @@
+@using Repositories;
+@inject IGroupRepository _IGroupRepository; 
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          گروه ها
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          @foreach (var item in _IGroupRepository.GroupViewModelForShow())
+          {
+            <a class="dropdown-item" href="~/Group/@item.GroupID/@item.GroupName">@item.GroupName</a>
+          }
+        </div>
+      </li>  

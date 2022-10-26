@@ -1,0 +1,43 @@
+@page
+@model EShop.Pages.Admin.DeleteModel
+@{
+    ViewData["Title"] = "حذف";
+}
+
+<h1>حذف محصول</h1>
+<hr>
+<form method="post" enctype="multipart/form-data">
+<dl class="dl-horizontal">
+    <dd><label asp-for="Product.Name"></label></dd>
+    <dt>
+        <input asp-for="Product.Name" class="form-control" readonly/>
+        <span asp-validation-for="Product.Name"></span>
+    </dt>
+    <dd><label asp-for="Product.Description"></label></dd>
+    <dt>
+        <textarea asp-for="Product.Description" class="form-control" readonly></textarea>
+        <span asp-validation-for="Product.Description"></span>
+    </dt>
+    <dd><label asp-for="Product.Price"></label></dd>
+    <dt>
+        <input asp-for="Product.Price" class="form-control" readonly/>
+        <span asp-validation-for="Product.Price"></span>
+    </dt>
+    <dd><label asp-for="Product.QuantityInStock"></label></dd>
+    <dt>
+        <input asp-for="Product.QuantityInStock" class="form-control" readonly/>
+        <span asp-validation-for="Product.QuantityInStock"></span>
+    </dt>
+    <dd>تصویر</dd>
+    <dt>
+        <img src="/images/@(Model.Product.Id).jpg" alt="@(Model.Product.Name)" style="max-width: 200px;">
+    </dt>
+    <dd></dd>
+    <dt>
+        <input type="hidden" asp-for="Product.Id">
+        <input type="submit" value="حذف" class="btn btn-danger">
+        <a asp-page="Index" class="btn btn-info">برگشت</a>
+    </dt>
+</dl>
+</form>
+
